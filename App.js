@@ -1,7 +1,8 @@
 import React, {useState} from "react"
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList,Alert } from 'react-native';
 import Header from "./components/header"
 import TodoItem from "./components/todosItem";
+import AddToDo from "./components/addtodo";
 
 export default function App() {
   const [todos, setTodos] = useState([
@@ -16,12 +17,23 @@ export default function App() {
     });
   };
 
+  const addTask = (inputValue,task,setInputValue)=>{
+    if(inputValue.length > 0){
+      setInputValue("")
+      setTodos((prev)=> [...prev,task])
+    }else {
+      Alert.alert('OOPS', 'Todo must be over 1 characters long', [
+        {text: 'Understood', onPress: () => console.log('alert closed') }
+      ]);
+    }
+  }
+
   return (
       <View style={styles.container}>
         <Header />
         <View style={styles.content}>
+          <AddToDo addToDo={addTask}/>
           <View style={styles.list}>
-
             <FlatList
                 data={todos}
                 renderItem={({ item }) => (

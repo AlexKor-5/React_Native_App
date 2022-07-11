@@ -1,10 +1,18 @@
-import React from "react"
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from "react"
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
+  const [greeting, setGreeting] = useState("Hello")
+
   return (
     <View style={styles.container}>
-      <Text>Hello</Text>
+      <View>
+        <Text>{greeting}</Text>
+        <Button
+            onPress={()=>setGreeting("How are you doing!")}
+            title="Change state"
+            color="yellowgreen"/>
+      </View>
     </View>
   );
 }

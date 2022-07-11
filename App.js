@@ -1,18 +1,20 @@
 import React, {useState} from "react"
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default function App() {
   const [greeting, setGreeting] = useState("Hello")
 
+  const handleClick = ()=>{
+    console.log('native')
+  }
+
   return (
     <View style={styles.container}>
-      <View>
-        <Text>{greeting}</Text>
-        <Button
-            onPress={()=>setGreeting("How are you doing!")}
-            title="Change state"
-            color="yellowgreen"/>
-      </View>
+        <TouchableOpacity onPress={handleClick}>
+          <View style={styles.box}>
+            <Text>{greeting}</Text>
+          </View>
+        </TouchableOpacity>
     </View>
   );
 }
@@ -24,4 +26,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  box:{
+    padding:30,
+    backgroundColor:'orange'
+  }
 });

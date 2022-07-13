@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
   content: {
     flex:1,
     padding: 40,
-    // backgroundColor:'darkblue',
   },
   list: {
     flex:1,

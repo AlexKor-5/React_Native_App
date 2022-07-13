@@ -13,7 +13,7 @@ export default function AddToDo({ addToDo=(f)=>f}) {
           />
           <Button
               title="Add"
-              color="#841584"
+              color="coral"
               onPress={()=>addToDo(input,{text:input,key:Math.random().toString()},setInput)}
           />
       </View>
@@ -23,6 +23,8 @@ export default function AddToDo({ addToDo=(f)=>f}) {
 const styles = StyleSheet.create({
     input:{
         borderWidth:2,
-        borderColor:'black'
+        borderColor:'black',
+        padding:10,
+        marginBottom:15
     }
 })

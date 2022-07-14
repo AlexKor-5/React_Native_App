@@ -1,7 +1,14 @@
 import React from "react"
 import { StyleSheet, View,Text } from 'react-native';
 import Home from "./screens/home"
+import ReviewDetails from "./screens/reviewDetails"
+
 import { useFonts } from 'expo-font';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
     const [loaded] = useFonts({
@@ -14,14 +21,19 @@ export default function App() {
     if (!loaded) {
         return (
             <View style={styles.container}>
-                <Text>Loading... Fonts</Text>;
+                <Text>Loading... Fonts</Text>
             </View>
         )
     }
 
   return (
       <View style={styles.container}>
-        <Home/>
+          <NavigationContainer>
+              <Stack.Navigator initialRouteName="ReviewDetails">
+                  <Stack.Screen name="Home" component={Home} />
+                  <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
+              </Stack.Navigator>
+          </NavigationContainer>
       </View>
   );
 }

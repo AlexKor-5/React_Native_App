@@ -1,8 +1,20 @@
 import React from "react"
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View,Text } from 'react-native';
 import Home from "./screens/home"
+import { useFonts } from 'expo-font';
 
 export default function App() {
+    const [loaded] = useFonts({
+        'nunito-extra-light': require('./assets/fonts/Nunito-ExtraLight.ttf'),
+        'nunito-regular':require('./assets/fonts/Nunito-Regular.ttf'),
+        'nunito-italic':require('./assets/fonts/Nunito-Italic.ttf'),
+        'nunito-bold':require('./assets/fonts/Nunito-Bold.ttf'),
+    });
+
+    if (!loaded) {
+        return <Text>Loading... Fonts</Text>;
+    }
+
   return (
       <View style={styles.container}>
         <Home/>

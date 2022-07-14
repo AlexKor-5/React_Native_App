@@ -12,7 +12,11 @@ export default function App() {
     });
 
     if (!loaded) {
-        return <Text>Loading... Fonts</Text>;
+        return (
+            <View style={styles.container}>
+                <Text>Loading... Fonts</Text>;
+            </View>
+        )
     }
 
   return (

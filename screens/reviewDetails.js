@@ -25,6 +25,11 @@ const styles = StyleSheet.create({
       marginRight:5
     },
     ratingBox:{
-        flexDirection:'row'
+        flexDirection:'row',
+        justifyContent: 'center',
+        paddingTop: 16,
+        marginTop: 16,
+        borderTopWidth: 1,
+        borderTopColor: '#eee',
     }
 })

@@ -37,9 +37,10 @@ export default function App() {
             }}
         >
             <Drawer.Screen name="GameZone" component={Home}/>
-            <Drawer.Screen name="About GameZone"
-                           component={About}
-                           options={{ drawerLabel: 'About' }}/>
+            <Drawer.Screen
+                name="About GameZone"
+                component={About}
+                options={{ drawerLabel: 'About' }}/>
         </Drawer.Navigator>
 
   return (

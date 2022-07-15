@@ -1,13 +1,17 @@
+import 'react-native-gesture-handler';
 import React from "react"
 import { StyleSheet, View,Text } from 'react-native';
 import Home from "./screens/home"
 import ReviewDetails from "./screens/reviewDetails"
+import About from "./screens/about";
 
 import { useFonts } from 'expo-font';
 
 import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -26,21 +30,27 @@ export default function App() {
         )
     }
 
+    const Root = ()=>
+        <Drawer.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+            }}
+        >
+            <Drawer.Screen name="GameZone" component={Home}/>
+            <Drawer.Screen name="About GameZone"
+                           component={About}
+                           options={{ drawerLabel: 'About' }}/>
+        </Drawer.Navigator>
+
   return (
       <View style={styles.container}>
           <NavigationContainer>
-              <Stack.Navigator
-                  initialRouteName="ReviewDetails"
-                  screenOptions={{
-                      headerStyle: {
-                          backgroundColor: '#f4511e',
-                      },
-                      headerTintColor: 'white',
-                      headerTitleStyle: {
-                          fontWeight: 'bold',
-                      },
-                  }}>
-                  <Stack.Screen name="Home" component={Home} />
+              <Stack.Navigator>
+                  <Stack.Screen
+                      name="Root"
+                      component={Root}
+                      options={{ headerShown: false }}
+                  />
                   <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
               </Stack.Navigator>
           </NavigationContainer>

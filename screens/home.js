@@ -4,6 +4,7 @@ import {globalStyles} from "../styles/global"
 import Card from "../shared/card";
 import { Octicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
+import ReviewForm from "./reviewForm";
 
 export default function Home({ navigation }) {
     const [modalVisible,setModalVisible] = useState(false)
@@ -42,7 +43,7 @@ export default function Home({ navigation }) {
                     <Fontisto name="close" size={34} color="black" style={styles.closeIcon}/>
                     </TouchableOpacity>
                     <View>
-                        <Text>Content</Text>
+                        <ReviewForm/>
                     </View>
                 </View>
             </Modal>
@@ -63,6 +64,6 @@ const styles = StyleSheet.create({
     closeIcon:{
         alignSelf:'center',
         marginTop:20,
-        marginBottom:10
+        marginBottom:20
     }
 })

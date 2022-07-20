@@ -14,7 +14,7 @@ export default function ReviewDetails({ route }) {
                 <Text>{body}</Text>
                 <View style={styles.ratingBox}>
                     <Text style={styles.ratingText}>Game rating:</Text>
-                    <StarRating value={rating}/>
+                    <StarRating value={+rating}/>
                 </View>
             </Card>
         </View>

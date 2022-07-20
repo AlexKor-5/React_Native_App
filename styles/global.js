@@ -18,13 +18,18 @@ export const globalStyles = StyleSheet.create({
         borderWidth:2,
         borderColor:'lightgrey',
         padding:15,
-        marginRight:20,
-        marginLeft:20,
-        marginBottom:20,
+        marginBottom:5,
     },
     submitButton:{
         marginLeft:13,
         marginRight:13,
         padding:10,
+    },
+    errorText:{
+        color:'red',
+        marginBottom:15
+    },
+    formContainer:{
+        padding:20
     }
 });
